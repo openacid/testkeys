@@ -38,7 +38,12 @@ func TestLoad(t *testing.T) {
 		ta.Nil(err)
 
 		want := []byte(strings.Join(c.want, "\n") + "\n")
-		ta.Equal(want, got, "%d-th: case: %+v", i+1, c)
+		ta.Equal(want, got, "%d-th: case: %+v: Asset", i+1, c)
+
+		{
+			got := Load(c.input)
+			ta.Equal(c.want, got, "%d-th: case: %+v compare strings", i+1, c)
+		}
 	}
 
 	{ // not found

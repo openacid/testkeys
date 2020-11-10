@@ -2,9 +2,7 @@ package testkeys
 
 import (
 	"bufio"
-	"fmt"
-	"os"
-	"path/filepath"
+	"bytes"
 )
 
 var Keys = []string{
@@ -28,20 +26,17 @@ var Keys = []string{
 	"1mvl5_10",
 }
 
-func Load(dir, fn string) []string {
-
-	p := filepath.Join(dir, fn)
-	fmt.Println("load from:", p)
-
-	f, err := os.Open(p)
-	if err != nil {
-		panic("fail to open: " + p + ":" + err.Error())
-	}
-	defer f.Close()
+func Load(fn string) []string {
 
 	rst := []string{}
 
-	s := bufio.NewScanner(f)
+	bs, err := Asset("data/" + fn)
+	if err != nil {
+		panic("Asset: " + fn + ":" + err.Error())
+	}
+
+	r := bytes.NewReader(bs)
+	s := bufio.NewScanner(r)
 	for s.Scan() {
 		str := s.Text()
 		rst = append(rst, str)
@@ -49,7 +44,7 @@ func Load(dir, fn string) []string {
 
 	err = s.Err()
 	if err != nil {
-		panic("scan: " + p + ":" + err.Error())
+		panic("scan: " + fn + ":" + err.Error())
 	}
 
 	return rst
