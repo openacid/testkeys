@@ -34,7 +34,7 @@ func TestLoad(t *testing.T) {
 	}
 
 	for i, c := range cases {
-		got, err := Asset("data/" + c.input)
+		got, err := Asset(c.input)
 		ta.Nil(err)
 
 		want := []byte(strings.Join(c.want, "\n") + "\n")
@@ -47,30 +47,30 @@ func TestLoad(t *testing.T) {
 	}
 
 	{ // not found
-		_, err := Asset("data/foo")
+		_, err := Asset("foo")
 		ta.NotNil(err)
 	}
 
 	names := AssetNames()
 	want := []string{
-		"data/empty",
+		"empty",
 
-		"data/10vl5",
-		"data/11vl5",
+		"10vl5",
+		"11vl5",
 
-		"data/10ll16k",
+		"10ll16k",
 
-		"data/300vl50",
+		"300vl50",
 
-		"data/20kl10",
-		"data/20kvl10",
+		"20kl10",
+		"20kvl10",
 
-		"data/50kl10",
-		"data/50kvl10",
+		"50kl10",
+		"50kvl10",
 
-		"data/200kweb2",
+		"200kweb2",
 
-		"data/1mvl5_10",
+		"1mvl5_10",
 	}
 
 	sort.Strings(names)

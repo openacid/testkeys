@@ -4,4 +4,4 @@ package testkeys
 // Usage:
 //     go generate ./...
 
-//go:generate go-bindata -pkg testkeys data/
+//go:generate go-bindata -prefix data/ -pkg testkeys data/

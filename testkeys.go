@@ -30,7 +30,7 @@ func Load(fn string) []string {
 
 	rst := []string{}
 
-	bs, err := Asset("data/" + fn)
+	bs, err := Asset(fn)
 	if err != nil {
 		panic("Asset: " + fn + ":" + err.Error())
 	}
