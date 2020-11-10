@@ -5,27 +5,6 @@ import (
 	"bytes"
 )
 
-var Keys = []string{
-	"empty",
-
-	"10vl5",
-	"11vl5",
-
-	"10ll16k",
-
-	"300vl50",
-
-	"20kl10",
-	"20kvl10",
-
-	"50kl10",
-	"50kvl10",
-
-	"200kweb2",
-
-	"1mvl5_10",
-}
-
 func Load(fn string) []string {
 
 	rst := []string{}
