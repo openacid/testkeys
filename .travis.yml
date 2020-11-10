@@ -5,10 +5,5 @@ go:
     - 1.15.x
     - tip
 
-install:
-    - go get github.com/go-bindata/go-bindata
-
 script:
-    # make sure re-generate bindata.go results in a clean git
-    - make gen && git diff-index --quiet HEAD --
     - go test ./...
