@@ -23,6 +23,8 @@ var Keys = []string{
 	"50kl10",
 	"50kvl10",
 
+	"200kweb2",
+
 	"1mvl5_10",
 }
 
