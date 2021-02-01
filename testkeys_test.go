@@ -70,6 +70,8 @@ func TestLoad(t *testing.T) {
 
 		"200kweb2",
 
+		"870k_ip4_hex",
+
 		"1mvl5_10",
 	}
 
